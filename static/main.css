@@ -1,0 +1,76 @@
+html,
+body {
+  background: #777777 url(http://gtzintzarov.github.io/TCP_LightOn/assets/img/asfalt-light.png) top left repeat;
+}
+#traffic-light {
+  min-height: 80vh;
+  width: 34.4vh;
+  margin: 5vh auto 10vh auto;
+  border: 5px solid #ffbf0b;
+  border-radius: 4%;
+  background: -webkit-radial-gradient(#ffe7a4, #ffbf0b);
+  /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#ffe7a4, #ffbf0b);
+  /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(#ffe7a4, #ffbf0b);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#ffe7a4, #ffbf0b);
+  /* Standard syntax */
+}
+#traffic-light .light {
+  display: block;
+  width: 22.4vh;
+  height: 22.4vh;
+  border-radius: 50%;
+  border: none;
+  margin: 3vh auto 3vh auto;
+}
+#traffic-light .light:focus {
+  outline: 0;
+}
+#traffic-light .red-off {
+  background: #996666;
+}
+#traffic-light .red-on {
+  background: -webkit-radial-gradient(#ffcccc, #ff0000);
+  /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#ffcccc, #ff0000);
+  /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(#ffcccc, #ff0000);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#ffcccc, #ff0000);
+  /* Standard syntax */
+}
+#traffic-light .yellow-off {
+  background: #999966;
+}
+#traffic-light .yellow-on {
+  background: -webkit-radial-gradient(#ffffff, #ffff00);
+  /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#ffffff, #ffff00);
+  /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(#ffffff, #ffff00);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#ffffff, #ffff00);
+  /* Standard syntax */
+}
+#traffic-light .green-off {
+  background: #486b48;
+}
+#traffic-light .green-on {
+  background: -webkit-radial-gradient(#80ff80, #009a00);
+  /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#80ff80, #009a00);
+  /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(#80ff80, #009a00);
+  /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#80ff80, #009a00);
+  /* Standard syntax */
+}
+#traffic-light hr {
+  margin: 0 0 0 0;
+  height: 5px;
+  background-color: #ffbf0b;
+  padding: 0 0 0 0;
+  border: none;
+}

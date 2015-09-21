@@ -11,11 +11,19 @@ def greenlight():
     PORT = 50007              # The same port as used by the server
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((HOST, PORT))
-    s.sendall("all_off")
+    s.sendall("get_status")
     data = s.recv(1024)
     s.close()
     print repr(data)
-    return render_template('index.html')
+    if data == "0 0 1":
+        return render_template('red.html')
+    elif data == "0 1 0":
+        return render_template('yellow.html')
+    elif data == "1 0 0":
+        return render_template('green.html')
+    else:
+        all_off_helper()
+        return render_template('index.html')
 
 @app.route('/<light_name>')
 def turn_on_light(light_name):

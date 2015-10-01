@@ -17,11 +17,11 @@
         <!-- main traffic light widget -->
         <div class="row">
             <div id="traffic-light">
-                <a href="{{ url_for('turn_on_light', light_name='red') }}"><button id="red-light" class="light red-off"></button></a>
+                <a href="{{ url_for('lightOn', light_name='red') }}"><button id="red-light" class="light red-off"></button></a>
                 <hr>
-                <a href="{{ url_for('turn_on_light', light_name='yellow') }}"><button id="yellow-light" class="light yellow-off"></button></a>
+                <a href="{{ url_for('lightOn', light_name='yellow') }}"><button id="yellow-light" class="light yellow-off"></button></a>
                 <hr>
-                <a href="{{ url_for('turn_on_light', light_name='green') }}"><button id="green-light" class="light green-on"></button></a>
+                <a href="{{ url_for('lightOn', light_name='green') }}"><button id="green-light" class="light green-on"></button></a>
             </div>
         </div>
         

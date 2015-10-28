@@ -3,8 +3,8 @@ body {
   background: #777777 url("/static/star--background-seamless-repeating9.jpg") top left repeat;
 }
 #main-logo {
-  width: 256px;
-  margin-top: -8px;
+  width: 192px;
+  margin-top: -4px;
 }
 #traffic-light {
   min-height: 60vh;

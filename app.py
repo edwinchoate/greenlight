@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 import socket
 
 app = Flask(__name__)
@@ -29,8 +29,7 @@ def lightOn(light_name):
         getData("yellow_on")
     elif light_name == 'red':
         getData("red_on")
-    return render_template(str(light_name) + '.html')
-           
+    return redirect('/');
 @app.route('/off')
 def allOff():
     getData("all_off")

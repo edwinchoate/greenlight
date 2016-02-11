@@ -34,7 +34,7 @@ def lightOn(light_name):
 def allOff():
     getData("all_off")
     return render_template('off.html')
-    
+
 def getData(message):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
@@ -46,5 +46,3 @@ def getData(message):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-

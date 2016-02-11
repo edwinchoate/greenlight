@@ -1,0 +1,47 @@
+html,
+body {
+  background: #777777 url("/assets/outer_space_1920x1080.jpg") top left repeat;
+}
+#main-logo {
+  width: 192px;
+  margin-top: -4px;
+}
+#traffic-light {
+  min-height: 60vh;
+  width: 25.8vh;
+  margin: 5vh auto 10vh auto;
+  border: 5px solid #5e5e5e;
+  background: #5e5e5e;
+}
+#traffic-light .light {
+  display: block;
+  width: 17.8vh;
+  height: 17.8vh;
+  border-radius: 50%;
+  border: none;
+  margin: 3vh auto 3vh auto;
+}
+#traffic-light .light:focus {
+  outline: 0;
+}
+#traffic-light .red-off,
+#traffic-light .yellow-off,
+#traffic-light .green-off {
+  background: #aaaaaa;
+}
+#traffic-light .red-on {
+  background: #f98b8b;
+}
+#traffic-light .yellow-on {
+  background: #fffb89;
+}
+#traffic-light .green-on {
+  background: #8ade9f;
+}
+#traffic-light hr {
+  margin: 0 0 0 0;
+  height: 5px;
+  background-color: #5e5e5e;
+  padding: 0 0 0 0;
+  border: none;
+}

@@ -10,6 +10,7 @@ port = 5000;
 app.use(express.static(__dirname + "/public"));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
+// trafficLight model
 var trafficLight = {
   "lights": {
     "red": {
@@ -34,18 +35,24 @@ var trafficLight = {
   }
 }
 
+// server-side events
 io.on('connection', function(socket) {
 
+  // update css on connection (based on trafficLight model)
   socket.emit('update frontend', trafficLight.lights);
 
+  // update trafficLight state based on button click event
   socket.on('lite clicked', function (liteId) {
     var light = liteId.split('-')[0];
 
+    // debug mode
     if (trafficLight.mode === 'debug') {
       var currentStatus = trafficLight.lights[light].status;
       trafficLight.setLightStatus(light, (currentStatus === 'on' ? 'off' : 'on'));
 
-    } else {
+    }
+    // normal mode
+    else {
       for (lite in trafficLight.lights) {
         trafficLight.setLightStatus(lite, 'off');
       }
@@ -57,6 +64,7 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function () {
 
   });
+  
 });
 
 http.listen(port, function () {

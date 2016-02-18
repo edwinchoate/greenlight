@@ -34,20 +34,46 @@
 
     <main>
 
-        <!-- main traffic light widget -->
+        <!-- traffic light widget -->
         <div class="row">
             <div id="traffic-light">
-                <a href="#"><button id="red-light" class="light red-off"></button></a>
+                <a href="#"><button id="red-light" class="light"></button></a>
                 <hr>
-                <a href="#"><button id="yellow-light" class="light yellow-off"></button></a>
+                <a href="#"><button id="yellow-light" class="light"></button></a>
                 <hr>
-                <a href="#"><button id="green-light" class="light green-off"></button></a>
+                <a href="#"><button id="green-light" class="light"></button></a>
             </div>
         </div>
 
     </main>
 
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+      var socket = io();
+
+      // add jquery click event handlers
+      var liteIds = ['#red-light', '#yellow-light', '#green-light'];
+      for (id in liteIds) {
+        $(liteIds[id]).on("click", function () {
+          socket.emit('lite clicked', $(this).context.id);
+        });
+      }
+
+      socket.on('update frontend', function (data) {
+        for (lite in data) {
+          var liteId = '#' + lite + '-light';
+          var liteStatus = data[lite].status;
+          $(liteId).removeClass((liteStatus === 'on' ? 'off' : lite + '-light-on'));
+          $(liteId).addClass((liteStatus === 'on' ? lite + '-light-on' : 'off'));
+        }
+      });
+
+      socket.on('lite clicked', function(liteId) {
+        $("#" + liteId).toggleClass('off');
+        $("#" + liteId).toggleClass(liteId + "-on");
+      });
+    </script>
 </body>
 </html>

@@ -1,18 +1,64 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var host, port;
 host = 'http://localhost';
-port = 3000;
+port = 5000;
 
 app.use(express.static(__dirname + "/public"));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
+var trafficLight = {
+  "lights": {
+    "red": {
+      "status": "off"
+    },
+    "yellow": {
+      "status": "on"
+    },
+    "green": {
+      "status": "off"
+    }
+  },
+  "mode": "normal",
+  getLights: function () {
+    return this.lights;
+  },
+  getLightStatus: function(light) {
+    return this.lights[light].status;
+  },
+  setLightStatus: function(light, status) {
+    this.lights[light].status = status;
+  }
+}
+
 io.on('connection', function(socket) {
-  console.log('a user just connected');
+
+  socket.emit('update frontend', trafficLight.lights);
+
+  socket.on('lite clicked', function (liteId) {
+    var light = liteId.split('-')[0];
+
+    if (trafficLight.mode === 'debug') {
+      var currentStatus = trafficLight.lights[light].status;
+      trafficLight.setLightStatus(light, (currentStatus === 'on' ? 'off' : 'on'));
+
+    } else {
+      for (lite in trafficLight.lights) {
+        trafficLight.setLightStatus(lite, 'off');
+      }
+      trafficLight.setLightStatus(light, 'on');
+    }
+    io.emit('update frontend', trafficLight.lights);
+  });
+
+  socket.on('disconnect', function () {
+
+  });
 });
 
-http.listen(3000, function () {
+http.listen(port, function () {
   console.log('listening on port ' + port + "...");
 });

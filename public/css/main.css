@@ -1,6 +1,6 @@
 html,
 body {
-  background: #777777 url("/assets/outer_space_1920x1080.jpg") top left repeat;
+  background: #777 url("/assets/outer_space_1920x1080.jpg") top left repeat;
 }
 #main-logo {
   width: 192px;
@@ -24,18 +24,16 @@ body {
 #traffic-light .light:focus {
   outline: 0;
 }
-#traffic-light .red-off,
-#traffic-light .yellow-off,
-#traffic-light .green-off {
-  background: #aaaaaa;
+#traffic-light .off {
+  background: #aaa;
 }
-#traffic-light .red-on {
+#traffic-light .red-light-on {
   background: #f98b8b;
 }
-#traffic-light .yellow-on {
+#traffic-light .yellow-light-on {
   background: #fffb89;
 }
-#traffic-light .green-on {
+#traffic-light .green-light-on {
   background: #8ade9f;
 }
 #traffic-light hr {

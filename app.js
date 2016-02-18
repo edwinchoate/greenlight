@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var mongo = require('mongodb').MongoClient;
 
 var host, port;
 host = 'http://localhost';
@@ -9,6 +10,18 @@ port = 5000;
 
 app.use(express.static(__dirname + "/public"));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
+
+mongo.connect('mongodb://localhost/greenlightdb', function (error, db) {
+  if (error) {
+    return error;
+  }
+
+  var logs = db.collection('logs');
+  var date = new Date();
+  logs.insert({
+    'date': date
+  });
+});
 
 // trafficLight model
 var trafficLight = {
@@ -64,7 +77,7 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function () {
 
   });
-  
+
 });
 
 http.listen(port, function () {

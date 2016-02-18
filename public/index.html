@@ -51,6 +51,20 @@
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
+      // set up nickname
+      var nickname = "";
+      // if nickname doesn't exist yet
+      if (document.cookie == "" || document.cookie == null) {
+        nickname = prompt("Hey! What's your nickname?");
+        if (nickname != "" && nickname != null) {
+          document.cookie = "nickname=" + nickname + ";";
+        }
+      }
+      // if nickname already exists
+      else {
+        nickname = document.cookie.split('=')[1];
+      }
+      
       var socket = io();
 
       // add jquery click event handlers

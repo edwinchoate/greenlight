@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/edwinchoate/greenlight/master/static/grn_lite_cover.png" width="100%"/>
+<img src="http://i.imgur.com/6iRWwNB.png" width="100%"/>
 
 > A web app for controlling a traffic light
 

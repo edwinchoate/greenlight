@@ -30,7 +30,7 @@ var trafficLight = {
       "status": "off"
     },
     "yellow": {
-      "status": "on"
+      "status": "off"
     },
     "green": {
       "status": "off"

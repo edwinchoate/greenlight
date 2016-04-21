@@ -2,9 +2,14 @@
   "name": "greenlight",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edwinchoate/greenlight"
+  },
   "dependencies": {
     "express": "^4.13.4",
-    "mongodb": "^2.1.7",
+    "mongodb": "^2.1.16",
     "socket.io": "^1.4.5"
-  }
+  },
+  "license": "MIT"
 }

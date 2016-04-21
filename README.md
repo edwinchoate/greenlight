@@ -2,4 +2,4 @@
 
 > A web app for controlling a traffic light
 
-We don't always have the server running. But if we do, see it live @ [greenlight.space](http://www.greenlight.space/)
+See it live @ [greenlight.space](http://www.greenlight.space/)

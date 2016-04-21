@@ -56,15 +56,16 @@
       // if nickname doesn't exist yet
       if (document.cookie == "" || document.cookie == null) {
         nickname = prompt("Hey! What's your nickname?");
+        var forever = new Date();
         if (nickname != "" && nickname != null) {
-          document.cookie = "nickname=" + nickname + ";";
+          document.cookie = "nickname=" + nickname + ";expires=Fri, 01 Jan 9999 05:00:00 GMT  ";
         }
       }
       // if nickname already exists
       else {
         nickname = document.cookie.split('=')[1];
       }
-      
+
       var socket = io();
 
       // add jquery click event handlers
